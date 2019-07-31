@@ -1,0 +1,36 @@
+
+0.1: 0 -> 0
+0.2: 0 -> 1
+0.7: 0 -> 2
+
+0.2: 1 -> 0
+0.2: 1 -> 1
+0.6: 1 -> 2
+
+0.0: 2 -> 0
+0.0: 2 -> 1
+1.0: 2 -> 2
+
+m0 = [0.1, 0.2, 0.7]
+m1 = [0.2, 0.2, 0.6]
+m1 = [0.0, 0.0, 1.0]
+
+n <- RandomRIO :: IO Float
+
+g 0 (length m0) 0 p m0
+
+g i n z p m =
+ if i == n then i-1
+ else
+  let w = (z+m!!i) in
+   if p < w then i
+   else g (i+1) n w p m
+
+[(0.0, 0.1), (0.1, 0.3),(0.3, 1.0)]
+
+how to get from (IO Float) to Float
+
+  a) can write it and then read it
+
+
+
